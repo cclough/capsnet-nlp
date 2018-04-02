@@ -65,7 +65,7 @@ def load_imdb(maxlen=1000):
 def main():
     x_train, y_train, x_test, y_test = load_imdb()
 
-    limit = 1000
+    limit = 3000
     model = get_model()
 
     batch_size = 32
