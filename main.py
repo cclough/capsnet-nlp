@@ -2,6 +2,7 @@ from keras.layers import K, Activation
 from keras.engine import Layer
 from keras.layers import LeakyReLU, Dense, Input, Embedding, Dropout, Bidirectional, GRU, Flatten, SpatialDropout1D
 from keras.datasets import imdb
+from keras.callbacks import Callback, ModelCheckpoint
 from keras.preprocessing import sequence
 from keras.models import Model
 
