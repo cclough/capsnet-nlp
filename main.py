@@ -8,6 +8,8 @@ from keras.models import Model
 
 from vendor.Capsule.Capsule_Keras import *
 
+import os
+
 gru_len = 256
 Routings = 3
 Num_capsule = 10
@@ -63,11 +65,15 @@ def load_imdb(maxlen=1000):
 def main():
     x_train, y_train, x_test, y_test = load_imdb()
 
-    limit = 1
+    limit = 1000
     model = get_model()
 
     batch_size = 32
     epochs = 40
+
+    weights_dir = "./weights/"
+    if not os.path.exists(weights_dir):
+        os.makedirs(weights_dir)
 
     checkpoint = ModelCheckpoint("./weights/weights.{epoch:02d}-{val_loss:.2f}.hdf5", monitor='val_loss', verbose=0, save_best_only=True, save_weights_only=False, mode='auto', period=1)
 
