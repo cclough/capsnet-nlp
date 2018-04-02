@@ -65,7 +65,7 @@ def load_imdb(maxlen=1000):
 def main():
     x_train, y_train, x_test, y_test = load_imdb()
 
-    limit = 3000
+    train_limit = 3000
     model = get_model()
 
     batch_size = 32
@@ -77,8 +77,8 @@ def main():
 
     checkpoint = ModelCheckpoint("./weights/weights.{epoch:02d}-{val_loss:.2f}.hdf5", monitor='val_loss', verbose=0, save_best_only=True, save_weights_only=False, mode='auto', period=1)
 
-    model.fit(x_train[:limit], y_train[:limit], batch_size=batch_size, epochs=epochs, callbacks=[checkpoint],
-              validation_data=(x_test[:limit], y_test[:limit]))
+    model.fit(x_train[:train_limit], y_train[:train_limit], batch_size=batch_size, epochs=epochs, callbacks=[checkpoint],
+              validation_data=(x_test, y_test))
 
     #model.save_weights('weights.h5')
 
