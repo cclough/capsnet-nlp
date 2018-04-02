@@ -62,11 +62,11 @@ def load_imdb(maxlen=1000):
 def main():
     x_train, y_train, x_test, y_test = load_imdb()
 
-    limit = 1
+    limit = 24000
     model = get_model()
 
-    batch_size = 1
-    epochs = 1
+    batch_size = 32
+    epochs = 40
 
     model.fit(x_train[:limit], y_train[:limit], batch_size=batch_size, epochs=epochs,
               validation_data=(x_test[:limit], y_test[:limit]))
