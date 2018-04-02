@@ -69,12 +69,12 @@ def main():
     batch_size = 32
     epochs = 40
 
-    checkpoint = ModelCheckpoint("weights.{epoch:02d}-{val_loss:.2f}.hdf5", monitor='val_loss', verbose=0, save_best_only=True, save_weights_only=False, mode='auto', period=1)
+    checkpoint = ModelCheckpoint("./weights/weights.{epoch:02d}-{val_loss:.2f}.hdf5", monitor='val_loss', verbose=0, save_best_only=True, save_weights_only=False, mode='auto', period=1)
 
     model.fit(x_train[:limit], y_train[:limit], batch_size=batch_size, epochs=epochs, callbacks=[checkpoint],
               validation_data=(x_test[:limit], y_test[:limit]))
 
-    model.save_weights('weights.h5')
+    #model.save_weights('weights.h5')
 
     preds = model.predict(x_test[:1], batch_size=1, verbose=2)
     print("x:{}".format(y_test[:1]))
