@@ -62,7 +62,7 @@ def load_imdb(maxlen=1000):
 def main():
     x_train, y_train, x_test, y_test = load_imdb()
 
-    limit = 100
+    limit = 1
     model = get_model()
 
     batch_size = 1
@@ -71,7 +71,7 @@ def main():
     model.fit(x_train[:limit], y_train[:limit], batch_size=batch_size, epochs=epochs,
               validation_data=(x_test[:limit], y_test[:limit]))
 
-    
+    model.predict(x_test)
 
 if __name__ == '__main__':
     main()
