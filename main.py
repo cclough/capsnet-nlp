@@ -74,7 +74,8 @@ def main():
     model.save_weights('weights.h5')
 
     preds = model.predict(x_test[:1], batch_size=1, verbose=2)
-    print(preds)
+    print("x:{}".format(x_test[:1]))
+    print("y:{}".format(preds)
 
 
 if __name__ == '__main__':
