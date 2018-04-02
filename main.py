@@ -71,7 +71,7 @@ def main():
     model.fit(x_train[:limit], y_train[:limit], batch_size=batch_size, epochs=epochs,
               validation_data=(x_test[:limit], y_test[:limit]))
 
-    model.predict(x_test)
+    model.predict(x_test[:1], batch_size=1, verbose=2)
 
 if __name__ == '__main__':
     main()
