@@ -71,7 +71,11 @@ def main():
     model.fit(x_train[:limit], y_train[:limit], batch_size=batch_size, epochs=epochs,
               validation_data=(x_test[:limit], y_test[:limit]))
 
-    model.predict(x_test[:1], batch_size=1, verbose=2)
+    model.save_weights('weights.h5')
+
+    preds = model.predict(x_test[:1], batch_size=1, verbose=2)
+    print(preds)
+
 
 if __name__ == '__main__':
     main()
