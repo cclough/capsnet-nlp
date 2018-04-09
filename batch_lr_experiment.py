@@ -14,7 +14,7 @@
 
 # CNN for the IMDB problem
 import numpy
-from keras.datasets import imdb
+from keras.datasets import imdb, reuters
 from keras.models import Sequential
 from keras.layers import Dense
 from keras.layers import Flatten
@@ -31,9 +31,9 @@ numpy.random.seed(seed)
 
 # load the dataset but only keep the top n words, zero the rest
 top_words = 50000
-(X_train, y_train), (X_test, y_test) = imdb.load_data(num_words=top_words)
+(X_train, y_train), (X_test, y_test) = reuters.load_data(num_words=top_words)
 # pad dataset to a maximum review length in words
-max_words = 500
+max_words = 1000
 X_train = sequence.pad_sequences(X_train, maxlen=max_words)
 X_test = sequence.pad_sequences(X_test, maxlen=max_words)
 
