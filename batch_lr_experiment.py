@@ -30,10 +30,10 @@ numpy.random.seed(seed)
 
 
 # load the dataset but only keep the top n words, zero the rest
-top_words = 50000
+top_words = None
 (X_train, y_train), (X_test, y_test) = reuters.load_data(num_words=top_words)
 # pad dataset to a maximum review length in words
-max_words = 1000
+max_words = None
 X_train = sequence.pad_sequences(X_train, maxlen=max_words)
 X_test = sequence.pad_sequences(X_test, maxlen=max_words)
 
