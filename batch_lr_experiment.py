@@ -43,7 +43,7 @@ X_test = sequence.pad_sequences(X_test)#, maxlen=max_words)
 
 # create the model
 model = Sequential()
-model.add(Embedding(top_words, 32, input_length=2494))#max_words))
+model.add(Embedding(top_words, 32, input_length=2315))#max_words))
 model.add(Conv1D(filters=32, kernel_size=3, padding='same', activation='relu'))
 model.add(MaxPooling1D(pool_size=2))
 model.add(Flatten())
