@@ -31,7 +31,7 @@ numpy.random.seed(seed)
 
 # load the dataset but only keep the top n words, zero the rest
 top_words = 5000
-(X_train, y_train), (X_test, y_test) = imdb.load_data(num_words=top_words)
+(X_train, y_train), (X_test, y_test) = imdb.load_data()#num_words=top_words)
 # pad dataset to a maximum review length in words
 max_words = 500
 X_train = sequence.pad_sequences(X_train, maxlen=max_words)
@@ -54,7 +54,7 @@ print(model.summary())
 
 
 # Fit the model
-model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=2, batch_size=128, verbose=2)
+model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=200, batch_size=128, verbose=2)
 # Final evaluation of the model
 scores = model.evaluate(X_test, y_test, verbose=0)
 print("Accuracy: %.2f%%" % (scores[1]*100))
